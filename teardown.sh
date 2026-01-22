@@ -31,7 +31,7 @@ VOLUME_NAME="${SUFFIX}_home_data"
 
 # Stop and remove the container if it exists
 if podman ps -a --format '{{.Names}}' | grep -q "^$CONTAINER_NAME$"; then
-    podman stop "$CONTAINER_NAME"
+    podman kill "$CONTAINER_NAME"
     podman rm "$CONTAINER_NAME"
 else
     echo "Container $CONTAINER_NAME does not exist."
